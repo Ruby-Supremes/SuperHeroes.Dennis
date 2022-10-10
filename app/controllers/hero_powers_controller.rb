@@ -7,7 +7,7 @@ end
 
  def create
     hero_power = HeroPower.create!(hero_power_params)
-    render json: hero_power.power, status: :created
+    render json: hero_power.hero
  end 
 
  private 
@@ -17,7 +17,6 @@ end
  end
   
  def render_unprocessable_entity_response(exception)
-   # render json: {errors: exception.record.errors.full_messages}, status: :unprocessable_entity
    render json: { error: "validation erors" }, status: :unprocessable_entity
  end
 end
